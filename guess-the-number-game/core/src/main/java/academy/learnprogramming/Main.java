@@ -26,6 +26,12 @@ public class Main {
         // log
         logger.info("number = {}", number);
 
+        // get game bean from context
+        Game game = context.getBean("game", GameImpl.class);
+
+        // call reset method
+        game.reset();
+
         // close
         context.close();
     }
