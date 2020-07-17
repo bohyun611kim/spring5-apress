@@ -26,10 +26,12 @@ public class Main {
         // log
         logger.info("number = {}", number);
 
-        // get game bean from context (container)
-        Game game = context.getBean(Game.class);
-        // 초기화 메소드 삭제
+        // get message
+        MessageGenerator messageGenerator = context.getBean(MessageGenerator.class);
 
+        // log
+        logger.info("getMessage = {}", messageGenerator.getMainMessage());
+        logger.info("getResultMessage = {}", messageGenerator.getResultMessage());
         // close
         context.close();
     }
