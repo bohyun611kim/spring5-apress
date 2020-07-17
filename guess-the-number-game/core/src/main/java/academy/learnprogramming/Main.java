@@ -19,7 +19,7 @@ public class Main {
                 = new ClassPathXmlApplicationContext(CONFIG_LOCATION);
         // == 콩을 꺼낸다
         NumberGenerator numberGenerator
-                = context.getBean("numberGenerator", NumberGenerator.class);
+                = context.getBean(NumberGenerator.class);
         // == 램덤 함수 호출 ==
         int number = numberGenerator.next();
 

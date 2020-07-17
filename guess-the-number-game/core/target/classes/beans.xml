@@ -6,11 +6,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-
-    <context:annotation-config/>
-
-    <bean id="numberGenerator" class="academy.learnprogramming.NumberGeneratorImpl"/>
-
-    <bean id="game" class="academy.learnprogramming.GameImpl" />
+    <!-- 빈 검색 범위 설정   -->
+    <context:component-scan base-package="academy.learnprogramming" />
 
 </beans>
