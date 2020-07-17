@@ -5,8 +5,11 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="numberGenerator" class="academy.learnprogramming.NumberGeneratorImpl" />
-
     <bean id="game" class="academy.learnprogramming.GameImpl" >
-        <constructor-arg ref="numberGenerator" />
+        <!--  setter injection      -->
+        <property name="numberGenerator"  ref="numberGenerator"/>
+        <!-- 생성자 인젝션 -->
+<!--        <constructor-arg  ref="numberGenerator"/>-->
     </bean>
 </beans>
+
