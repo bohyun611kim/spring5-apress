@@ -26,11 +26,9 @@ public class Main {
         // log
         logger.info("number = {}", number);
 
-        // get game bean from context
-        Game game = context.getBean("game", GameImpl.class);
-
-        // call reset method
-        game.reset();
+        // get game bean from context (container)
+        Game game = context.getBean(Game.class);
+        // 초기화 메소드 삭제
 
         // close
         context.close();
