@@ -8,7 +8,19 @@
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11 (2)" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="modificationStamps">
+      <map>
+        <entry key="$PROJECT_DIR$/../../play-projects/consulting-services-inc" value="1433467927000" />
+        <entry key="$PROJECT_DIR$/../../play-projects/hello-world" value="1431653648000" />
+        <entry key="$PROJECT_DIR$/../../play-projects/scoobie" value="1432013850000" />
+      </map>
+    </option>
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
   </component>
 </project>

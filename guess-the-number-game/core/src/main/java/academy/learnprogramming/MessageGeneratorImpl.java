@@ -6,51 +6,58 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 
+/*
+ *  게임 정보를 출력해 주는 클래스
+ */
 public class MessageGeneratorImpl implements MessageGenerator {
 
-    // == 로그 ==
-    private static Logger log = LoggerFactory.getLogger(MessageGeneratorImpl.class);
-    // == field ==
+    // == constants ==
+    private static final Logger log = LoggerFactory.getLogger(MessageGeneratorImpl.class);
+
+    // == fields ==
     @Autowired
     private Game game;
 
-    private int guessCount = 100;
+    private int guessCount = 10;
 
     // == init ==
     @PostConstruct
-    public void game() {
+    public void init() {
         log.info("game = {}", game);
     }
 
-    // == public method
+    // == public methods ==
     @Override
     public String getMainMessage() {
-        return "Number is between " +
-                game.getSmallest() +
-                " and " +
-                game.getBiggest() +
-                ". Can you guess it?";
+        StringBuilder builder = new StringBuilder();
+        builder.append("Number is between ")
+                .append(game.getSmallest())
+                .append(" and ")
+                .append(game.getBiggest())
+                .append(". Can you guess it?");
+
+        return builder.toString();
     }
 
     @Override
     public String getResultMessage() {
 
-        if(game.isGameWon()) {
+        if (game.isGameWon()) {
             return "You guessed it! The number was " + game.getNumber();
-        } else if(game.isGameLost()) {
-            return "You Lost!" + " the number is : " + game.getNumber();
-        } else if(!game.isValidNumberRange()) {
+        } else if (game.isGameLost()) {
+            return "You lost. The number was " + game.getNumber();
+        } else if (!game.isValidNumberRange()) {
             return "Invalid number range!";
-        } else if(game.getRemainingGuesses() == guessCount){
+        } else if (game.getRemainingGuesses() == guessCount) {
             return "What is your first guess?";
         } else {
             String direction = "Lower";
 
-            if(game.getGuess() < game.getNumber()) {
+            if (game.getGuess() < game.getNumber()) {
                 direction = "Higher";
             }
+
             return direction + "! You have " + game.getRemainingGuesses() + " guess left";
         }
-
     }
 }
